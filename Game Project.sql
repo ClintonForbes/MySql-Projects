@@ -98,5 +98,3 @@ WHERE
         WHERE
             Backlogs > 5500)
 ORDER BY Backlogs DESC;
-
-
