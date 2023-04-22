@@ -1,0 +1,13 @@
+-- SQL Views Example
+
+
+Create or Replace View V_Reviewer_Reviews as
+SELECT r.first_name, r.last_name, COUNT(rv.rating) AS Num_of_times_rated
+FROM reviewers r
+JOIN reviews rv ON r.id = rv.reviewer_id
+GROUP BY r.first_name, r.last_name;
+
+
+-- Result. Now all users using this server can view this view and see how many times each person has rated
+
+SELECT * FROM netflixproject.v_reviewer_reviews;
