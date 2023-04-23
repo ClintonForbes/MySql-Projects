@@ -1,0 +1,18 @@
+
+-- Create a temp table showing genres with the max ratings
+
+drop table if exists genere_ratings;
+create temporary table genre_ratings
+select s.genre, max(r.rating) as highest_rating
+from series s
+join reviews r on s.id = r.series_id
+group by s.genre
+order by s.genre desc;
+
+
+SELECT 
+    *
+FROM
+    genre_ratings;
+    
+-- Temp Table is only valid within the scope of the MySQL session
